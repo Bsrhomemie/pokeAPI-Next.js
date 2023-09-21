@@ -85,19 +85,71 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.card-pokemon {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .5s ease;
+}
+
+.card-pokemon .ant-card-body{
+  z-index: 2;
+}
+
+.card-pokemon::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  background-image: url('/poke_ball.webp');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom ;
+  opacity: 0.2;
+  filter: blur(8px);
+}
+
+.card-pokemon:hover{
+  background-color: #E5E4E250;
+  -webkit-box-shadow: 3px 10px 26px -4px rgb(140, 140, 140);
+  -moz-box-shadow: 3px 10px 26px -4px rgb(140, 140, 140);
+  box-shadow: 3px 10px 26px -4px rgb(140, 140, 140);
+}
+
+.card-pokemon:hover .ant-card-body img {
+  transform: scale(1.1);
+}
+
+.container {
+  max-width: 1024px;
+  padding: 20px;
+  margin: auto;
+}
+
+.login-form {
+  width: 600px;
+  max-width: 100%;
+}
+
+.pokemon-image {
+  background-color: #00000080;
+  border-radius: 200%;
+  margin: 0 15%;
+  padding: 15px;
+  position: relative;
+}
+
+.header {
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)
 }
 
 @media (prefers-color-scheme: dark) {
